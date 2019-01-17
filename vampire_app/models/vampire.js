@@ -7,12 +7,12 @@ const vampireSchema = new Schema({
 	hair_color: { type: String, default: "blonde" },
 	eye_color:   String,
 	dob: Date, // can have arrays of objects with specific properties
-	loves: [String], // can set defaults for properties
+	loves: [ { type: String } ], // can set defaults for properties
 	location: String,
 	gender: String,
     victims: { type: Number, min: 0 }
 });
 
-const Article = mongoose.model('Article', vampireSchema);
+const Vampire = mongoose.model('Vampire', vampireSchema);
 
-module.exports = Article;
+module.exports = Vampire;

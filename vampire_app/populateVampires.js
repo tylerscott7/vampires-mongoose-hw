@@ -1,5 +1,3 @@
-import { Module } from "module";
-
 const vampires = [
   {
     name: 'Count Chocula',
