@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const vampireSchema = new Schema({
     //write your schema fields here
-    name:  { type: String, required: true }, //can say whether we want properties to be required or unique
+    name:  { type: String, required: true, unique: true }, //can say whether we want properties to be required or unique
 	hair_color: { type: String, default: "blonde" },
 	eye_color:   String,
 	dob: Date, // can have arrays of objects with specific properties
