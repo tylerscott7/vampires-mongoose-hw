@@ -299,11 +299,51 @@ Vampire.findOneAndUpdate(
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
-// ## UPDATE
+// ## UPDATE (DONT DO)
+
+// Vampire.findOneAndUpdate(
+//     { name: "Guy Man" },
+//     { $set: { gender:"f" } },
+//     (err, vampires) => {
+//         console.log("CHANGE TO FEMALE", vampires); 
+// 	}
+// );
+
+// Vampire.findOneAndUpdate(
+//     { name: "Eve" },
+//     { $set: { gender:"m" } },
+//     (err, vampires) => {
+//         console.log("CHANGE TO MALE", vampires); 
+// 	}
+// );
+
+// Vampire.findOneAndUpdate(
+//     { name: "Guy Man" },
+//     { $set: { hates:"m" } },
+//     (err, vampires) => {
+//         console.log("CHANGE TO MALE", vampires); 
+// 	}
+// );
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## REMOVE
+
+Vampire.findOne(
+    { hair_color: "brown" },
+    (err, vampires) => {
+        post.remove(function(error){
+        });
+        console.log("REMOVE ONE BROWN HAIRED", vampires); 
+	}
+);
+
+Vampire.remove(
+    { eye_color: "blue" },
+    (err, vampires) => {
+        console.log("REMOVED ALL BLUE EYES", vampires); 
+	}
+);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
