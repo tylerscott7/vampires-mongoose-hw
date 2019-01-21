@@ -206,8 +206,76 @@ Vampire.find(
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
 
+Vampire.find(
+    { $or: [{loves:"frilly shirtsleevs"},{loves:"frilly collars"}]},
+    (err, vampires) => {
+        console.log("LOVE FRILLY STUFF", vampires); 
+	}
+);
+
+Vampire.find(
+    {loves:"brooding"},
+    (err, vampires) => {
+        console.log("LOVE BROODING", vampires); 
+	}
+);
+
+Vampire.find(
+    { $or: [{loves:"fancy cloaks"},
+    {loves:"frilly shirtsleeves"},
+    {loves:"appearing innocent"},
+    {loves:"brooding"},
+    {loves:"being tragic"},
+    ]},
+    (err, vampires) => {
+        console.log("LOVES", vampires); 
+	}
+);
+
+Vampire.find(
+    {victims: {$lte:200}},
+    (err, vampires) => {
+        console.log("VICTIMS", vampires); 
+	}
+);
+
 /////////////////////////////////////////////////
 //### Negative Selection
+
+Vampire.find(
+    { loves: "ribbons",
+    eye_color: {$ne:"brown"} },
+    (err, vampires) => {
+        console.log("LOVE RIBBON", vampires); 
+	}
+);
+
+Vampire.find(
+    { location: { $ne:"Rome"},
+    eye_color: {$ne:"brown"} },
+    (err, vampires) => {
+        console.log("NOT ROME", vampires); 
+	}
+);
+
+Vampire.find(
+    { $or: { $ne: [{loves:"fancy cloaks"},
+    {loves:"frilly shirtsleeves"},
+    {loves:"appearing innocent"},
+    {loves:"brooding"},
+    {loves:"being tragic"},
+    ]}},
+    (err, vampires) => {
+        console.log("DOESNT LOVE", vampires); 
+	}
+);
+
+Vampire.find(
+    { victims: {$lte:200} },
+    (err, vampires) => {
+        console.log("KILLED <= 200", vampires); 
+	}
+);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
