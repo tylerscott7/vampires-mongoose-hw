@@ -269,7 +269,7 @@ Vampire.find(
         console.log("DOESNT LOVE", vampires); 
 	}
 );
-
+ 
 Vampire.find(
     { victims: {$lte:200} },
     (err, vampires) => {
@@ -280,6 +280,22 @@ Vampire.find(
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## REPLACE
+
+Vampire.update(
+    { name: "Claudia" },
+    { $set: { name:"Eve" , portrayed_by: "Tilda Swinton" } },
+    (err, vampires) => {
+        console.log("RENAME EVE", vampires); 
+	}
+);
+
+Vampire.findOneAndUpdate(
+    { gender: "m" },
+    { $set: { name:"Guy Man" , is_actually: "were-lizard" } },
+    (err, vampires) => {
+        console.log("MAKE FIRST MALE WERE-LIZARD", vampires); 
+	}
+);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
